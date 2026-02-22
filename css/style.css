@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: verdana;
+  background-color: #f4f1ea;
+}
+
+#contenedor {
+  text-align: center;
+  padding: 40px;
+}
+
+#tituloPrincipal {
+  font-size: 40px;
+  margin-bottom: 40px;
+  letter-spacing: 3px;
+}
+
+#galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.obra {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.obra img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.obra img:hover {
+  transform: scale(1.03);
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: none;
+  z-index: 998;
+}
+
+#preview {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  display: none;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 10px solid #c6a75e;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  z-index: 999;
+  transition: transform 0.4s ease;
+}
+
+#footer {
+  margin-top: 100px;
+  padding: 50px 20px;
+  background-color: #111;
+  color: #f4f1ea;
+  text-align: center;
+  position: relative;
+}
+
+#lineaDorada {
+  width: 120px;
+  height: 3px;
+  margin: 0 auto 25px auto;
+  background: linear-gradient(to right, #c6a75e, #e6d18f, #c6a75e);
+}
+
+#firma {
+  font-style: italic;
+  letter-spacing: 3px;
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+#btnTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #c6a75e;
+  color: #111;
+  cursor: pointer;
+  font-weight: bold;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#btnTop:hover {
+  background-color: #fff;
+  transform: scale(1.05);
+}
