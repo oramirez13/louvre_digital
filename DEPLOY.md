@@ -2,16 +2,26 @@
 
 ## GitHub
 
-Si vas a subir `jquery/louvre_digital` como proyecto independiente:
+Este proyecto ya está preparado como repositorio independiente. Para revisar el remoto actual:
 
 ```bash
-cd jquery/louvre_digital
-git init
+git remote -v
+```
+
+El remoto configurado actualmente es:
+
+```text
+git@github.com:oramirez13/louvre_digital.git
+```
+
+Para guardar cambios y subirlos a GitHub:
+
+```bash
+cd /home/orami/u_fidelitas/desarrollo_web/jquery/louvre_digital
+git status
 git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/TU_USUARIO/louvre_digital.git
-git push -u origin main
+git commit -m "Actualizar proyecto Louvre Digital"
+git push
 ```
 
 ## Render
