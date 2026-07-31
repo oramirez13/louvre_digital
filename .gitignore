@@ -1,7 +1,14 @@
+# Operating system files
 .DS_Store
 Thumbs.db
+
+# Editors
+.vscode/
+
+# Dependencies and builds
 node_modules/
 dist/
 build/
+
+# Environment variables
 .env
-.vscode/

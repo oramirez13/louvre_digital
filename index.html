@@ -1,14 +1,37 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Louvre Digital</title>
     <meta
       name="description"
-      content="Galeria de arte interactiva con obras clasicas, filtros por movimiento artistico y visor ampliado."
+      content="Interactive art gallery with classic artworks, art-movement filters and an enlarged viewer."
     />
-    <!--Bootstrap/css-->
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Louvre Digital" />
+    <meta
+      property="og:title"
+      content="Louvre Digital | Interactive art gallery"
+    />
+    <meta
+      property="og:description"
+      content="Interactive art gallery with classic artworks, art-movement filters and an enlarged viewer."
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/oramirez13/louvre_digital/main/img/monalisa.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://github.com/oramirez13/louvre_digital"
+    />
+    <meta name="twitter:card" content="summary" />
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+
+    <!-- Bootstrap/css -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,38 +39,102 @@
       crossorigin="anonymous"
     />
 
-    <!--css/style.css-->
+    <!-- css/style.css -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header class="hero">
       <div class="hero__content">
         <div class="hero__copy">
-          <p class="eyebrow">Museo Virtual</p>
+          <p class="eyebrow">Virtual Museum</p>
           <h1 class="hero__title">Louvre Digital</h1>
-          <p class="hero__text">Explora una selección de obras icónicas.</p>
+          <p class="hero__text">Explore a selection of iconic artworks.</p>
+        </div>
+        <!-- Statistics filled by main.js -->
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <strong id="hero-count">0</strong>
+            <span>Artworks</span>
+          </div>
+          <div class="hero__stat">
+            <strong id="hero-movements">0</strong>
+            <span>Art movements</span>
+          </div>
         </div>
       </div>
     </header>
 
     <main class="page">
+      <!-- Filter panel: search, movement, sort and reset -->
+      <section class="panel" aria-label="Gallery filters">
+        <div class="panel__top">
+          <div>
+            <h2 class="panel__title">Gallery</h2>
+            <p class="panel__text">
+              <span id="result-count">0 artworks</span>
+            </p>
+          </div>
+          <button id="reset-btn" type="button" class="button button--secondary">
+            Clear filters
+          </button>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="search-input">Search</label>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="e.g. Van Gogh"
+              autocomplete="off"
+            />
+          </div>
+          <div class="control">
+            <label for="movement-filter">Art movement</label>
+            <select id="movement-filter">
+              <option value="all">All</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="sort-select">Sort by</label>
+            <select id="sort-select">
+              <option value="title">Title</option>
+              <option value="author">Author</option>
+              <option value="year-asc">Year (ascending)</option>
+              <option value="year-desc">Year (descending)</option>
+            </select>
+          </div>
+        </div>
+        <!-- Chips with the currently active filters -->
+        <div id="active-filters" class="active-filters"></div>
+      </section>
+
+      <!-- Artwork gallery -->
       <section class="gallery-section" aria-labelledby="gallery-title">
-        <h2 id="gallery-title" class="sr-only">Galería de obras</h2>
+        <h2 id="gallery-title" class="sr-only">Artwork gallery</h2>
         <div id="empty-state" class="empty-state" hidden>
-          No se encontraron obras con los filtros actuales.
+          No artworks matched the current filters.
         </div>
         <div id="gallery" class="gallery"></div>
       </section>
     </main>
 
-    <div id="lightbox" class="lightbox" hidden>
+    <!-- Lightbox that shows the enlarged artwork -->
+    <div
+      id="lightbox"
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="lightbox-title"
+      hidden
+    >
       <div id="lightbox-backdrop" class="lightbox__backdrop"></div>
       <div class="lightbox__dialog">
+        <h2 id="lightbox-title" class="sr-only">Enlarged artwork</h2>
         <button
           id="lightbox-close"
           class="lightbox__close"
           type="button"
-          aria-label="Cerrar imagen"
+          aria-label="Close image"
         >
           ×
         </button>
@@ -58,9 +145,9 @@
     <footer class="footer">
       <div class="footer__line"></div>
       <p class="footer__copy">
-        Realizado por Osvaldo Ramirez © <span id="year"></span>
+        Created by Osvaldo Ramírez © <span id="year"></span>
       </p>
-      <button id="btn-top" type="button" class="button">Volver arriba</button>
+      <button id="btn-top" type="button" class="button">Back to top</button>
     </footer>
 
     <!-- Scripts -->
@@ -86,7 +173,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- js/script.js -->
+    <!-- js/main.js -->
     <script src="js/main.js" type="text/javascript"></script>
   </body>
 </html>

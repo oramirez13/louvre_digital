@@ -14,10 +14,7 @@
   --max-width: 1200px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -240,14 +237,16 @@ select {
   color: var(--color-primary);
   font-size: 0.88rem;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-chip:hover {
+  background-color: rgba(141, 107, 47, 0.18);
 }
 
 .button {
   border: none;
   cursor: pointer;
-}
-
-.button {
   max-width: 100%;
   min-height: 48px;
   padding: 12px 20px;
@@ -309,8 +308,15 @@ select {
   justify-content: center;
   padding: 14px;
   overflow: hidden;
+  border: none;
+  font: inherit;
   background: linear-gradient(180deg, #f8f2e6 0%, #ebe0cd 100%);
   cursor: pointer;
+}
+
+.card__image-box:focus-visible {
+  outline: 3px solid rgba(141, 107, 47, 0.5);
+  outline-offset: 2px;
 }
 
 .card__image {
