@@ -1,6 +1,6 @@
 # Louvre Digital
 
-Interactive art gallery presenting classic artworks with a search box, filters by art movement, sorting and an enlarged image viewer.
+Interactive art gallery presenting classic artworks with an enlarged image viewer.
 
 ## Technologies
 
@@ -12,10 +12,6 @@ Interactive art gallery presenting classic artworks with a search box, filters b
 
 ## Features
 
-- Search by title, author or art movement (accent-insensitive).
-- Filter by art movement.
-- Sort by title, author, or year (ascending/descending).
-- Active filter chips with individual removal.
 - Lightbox viewer opened by click or keyboard (Enter/Space), with `Escape` and backdrop click to close.
 - "Back to top" button that respects the `prefers-reduced-motion` preference.
 - Responsive layout and `prefers-reduced-motion` support.
@@ -24,11 +20,11 @@ Interactive art gallery presenting classic artworks with a search box, filters b
 
 ```text
 louvre_digital/
-├── index.html          # Main page (hero, filters, gallery, lightbox)
+├── index.html          # Main page (hero, gallery, lightbox)
 ├── css/
 │   └── style.css       # Global styles (CSS variables, BEM, media queries)
 ├── js/
-│   └── main.js         # Gallery logic: search, filters, sorting, lightbox
+│   └── main.js         # Gallery logic: artwork cards and lightbox viewer
 └── img/
     ├── favicon.png     # Square site icon
     └── *.webp          # 10 artworks stored in WebP format

@@ -50,70 +50,13 @@
           <h1 class="hero__title">Louvre Digital</h1>
           <p class="hero__text">Explore a selection of iconic artworks.</p>
         </div>
-        <!-- Statistics filled by main.js -->
-        <div class="hero__stats">
-          <div class="hero__stat">
-            <strong id="hero-count">0</strong>
-            <span>Artworks</span>
-          </div>
-          <div class="hero__stat">
-            <strong id="hero-movements">0</strong>
-            <span>Art movements</span>
-          </div>
-        </div>
       </div>
     </header>
 
     <main class="page">
-      <!-- Filter panel: search, movement, sort and reset -->
-      <section class="panel" aria-label="Gallery filters">
-        <div class="panel__top">
-          <div>
-            <h2 class="panel__title">Gallery</h2>
-            <p class="panel__text">
-              <span id="result-count">0 artworks</span>
-            </p>
-          </div>
-          <button id="reset-btn" type="button" class="button button--secondary">
-            Clear filters
-          </button>
-        </div>
-        <div class="controls">
-          <div class="control">
-            <label for="search-input">Search</label>
-            <input
-              id="search-input"
-              type="search"
-              placeholder="e.g. Van Gogh"
-              autocomplete="off"
-            />
-          </div>
-          <div class="control">
-            <label for="movement-filter">Art movement</label>
-            <select id="movement-filter">
-              <option value="all">All</option>
-            </select>
-          </div>
-          <div class="control">
-            <label for="sort-select">Sort by</label>
-            <select id="sort-select">
-              <option value="title">Title</option>
-              <option value="author">Author</option>
-              <option value="year-asc">Year (ascending)</option>
-              <option value="year-desc">Year (descending)</option>
-            </select>
-          </div>
-        </div>
-        <!-- Chips with the currently active filters -->
-        <div id="active-filters" class="active-filters"></div>
-      </section>
-
       <!-- Artwork gallery -->
       <section class="gallery-section" aria-labelledby="gallery-title">
         <h2 id="gallery-title" class="sr-only">Artwork gallery</h2>
-        <div id="empty-state" class="empty-state" hidden>
-          No artworks matched the current filters.
-        </div>
         <div id="gallery" class="gallery"></div>
       </section>
     </main>
