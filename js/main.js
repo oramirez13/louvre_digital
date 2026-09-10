@@ -118,8 +118,8 @@ $(document).ready(function () {
   const $gallery = $("#gallery");               // container of the artwork cards
   const $lightbox = $("#lightbox");             // lightbox wrapper
   const $lightboxImage = $("#lightbox-image");  // image shown enlarged
-  const $lightboxClose = $("#lightbox-close");  // close button of the lightbox
   const $lightboxBackdrop = $("#lightbox-backdrop"); // dark layer behind the image
+  const $lightboxDialog = $("#lightbox-dialog");     // centered container of the image
   const $btnTop = $("#btn-top");                // "back to top" button
 
   // Remembers the card that opened the lightbox to restore focus later
@@ -195,7 +195,9 @@ $(document).ready(function () {
     $lightbox.prop("hidden", false);
     // Locks the scroll of the page behind the lightbox
     $("body").css("overflow", "hidden");
-    $lightboxClose.trigger("focus");
+    // Moves the keyboard focus to the modal so the Tab key and the Escape
+    // key work from inside the lightbox (the dialog needs tabindex="-1")
+    $lightboxDialog.trigger("focus");
   }
 
   // Closes the lightbox and restores the focus to the opened card
@@ -246,11 +248,19 @@ $(document).ready(function () {
     openImage($(this).data("image"), $(this).data("alt"));
   });
 
-  // Closes the lightbox with its close button
-  $lightboxClose.on("click", closeImage);
-
   // Closes the lightbox when the dark backdrop is clicked
   $lightboxBackdrop.on("click", closeImage);
+
+  // Closes the lightbox when the click lands on the empty area of the
+  // dialog (outside the image, but inside the modal). This way the user
+  // can close it by clicking anywhere outside the artwork.
+  $lightboxDialog.on("click", function (event) {
+    // Closes only when the click hits the dialog itself and not the
+    // image, so opening the image is not interrupted by this handler
+    if (event.target === this) {
+      closeImage();
+    }
+  });
 
   // Closes the lightbox when the Escape key is pressed
   $(document).on("keydown", function (event) {

@@ -1,6 +1,5 @@
 :root {
   --color-bg: #f2ede3;
-  --color-surface-dark: #1f1a17;
   --color-card: #ffffff;
   --color-primary: #8d6b2f;
   --color-primary-light: #c7a35f;
@@ -255,26 +254,6 @@ select {
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
 }
 
-.lightbox__close {
-  position: absolute;
-  top: 18px;
-  right: 0;
-  width: 44px;
-  height: 44px;
-  border: none;
-  border-radius: 50%;
-  background-color: rgba(255, 253, 248, 0.92);
-  color: var(--color-surface-dark);
-  cursor: pointer;
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-.lightbox__close:focus {
-  outline: 3px solid rgba(255, 247, 232, 0.35);
-  outline-offset: 2px;
-}
-
 .footer {
   width: 100%;
   margin-top: 100px;
@@ -350,13 +329,6 @@ select {
     max-height: calc(100vh - 88px);
     border-width: 6px;
     border-radius: 12px;
-  }
-
-  .lightbox__close {
-    top: 12px;
-    right: 0;
-    width: 40px;
-    height: 40px;
   }
 
   .footer {

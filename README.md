@@ -12,7 +12,7 @@ Interactive art gallery presenting classic artworks with an enlarged image viewe
 
 ## Features
 
-- Lightbox viewer opened by click or keyboard (Enter/Space), with `Escape` and backdrop click to close.
+- Lightbox viewer opened by click or keyboard (Enter/Space), with `Escape` or a click outside the image to close.
 - "Back to top" button that respects the `prefers-reduced-motion` preference.
 - Responsive layout and `prefers-reduced-motion` support.
 
